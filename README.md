@@ -23,94 +23,85 @@
 
 ## 🚀 Guía de Instalación y Puesta en Marcha (Paso a Paso)
 
-Sigue estos sencillos pasos para clonar y ejecutar el backend de **Milmoteles** en tu computadora:
+Sigue estos sencillos pasos para abrir y ejecutar **Milmoteles** directamente desde tu IDE (VS Code / Antigravity):
 
-### 1. Clonar el repositorio
-Abre tu terminal y clona el proyecto:
-```bash
-git clone https://github.com/Cardonaesteban/Milmoteles.git
-cd Milmoteles
-```
+### 1. Abrir el proyecto en el IDE
+1. Clona el repositorio si aún no lo tienes:
+   ```bash
+   git clone https://github.com/Cardonaesteban/Milmoteles.git
+   ```
+2. Abre tu IDE y selecciona **File ➔ Open Folder...** (Archivo ➔ Abrir carpeta).
+3. Selecciona la carpeta **`Milmoteles`**.
 
 ---
 
-### 2. Entrar a la carpeta del backend
+### 2. Abrir la Terminal Integrada del IDE
+- Presiona el atajo: **`Ctrl + \``** (o ve al menú superior: **Terminal ➔ New Terminal**).
+
+---
+
+### 3. Entrar a `backend/` y crear el entorno virtual
+En la terminal integrada del IDE, ejecuta:
 ```bash
 cd backend
+python -m venv venv
 ```
 
 ---
 
-### 3. Crear y activar el entorno virtual
-
-#### En Windows (PowerShell):
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-*(Si PowerShell te muestra error de directivas de ejecución, ejecuta antes: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`).*
-
-#### En Windows (CMD):
-```cmd
-python -m venv venv
-venv\Scripts\activate.bat
-```
-
-#### En Linux o macOS:
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+### 4. Vincular el entorno virtual al IDE
+1. Presiona **`Ctrl + Shift + P`** en el IDE.
+2. Escribe y selecciona: **`Python: Select Interpreter`**.
+3. Elige la opción que contiene el entorno virtual:  
+   `Python 3.14 (.'venv': venv) .\backend\venv\Scripts\python.exe`
+> *Tip: A partir de este momento, cada vez que abras una terminal en el IDE con `Ctrl + \``, el entorno virtual `(venv)` se activará automáticamente sin comandos adicionales.*
 
 ---
 
-### 4. Instalar dependencias
-Con el entorno virtual activado (`(venv)` al inicio de la terminal), instala todas las librerías necesarias:
+### 5. Instalar dependencias en el IDE
+En la terminal integrada del IDE, ejecuta:
 ```bash
 pip install -r requirements-dev.txt
 ```
 
 ---
 
-### 5. Configurar el archivo de variables de entorno (`.env`)
-Por estándares de ciberseguridad, las contraseñas nunca se suben a GitHub. Debes crear tu archivo local `.env`:
-
-1. Crea una copia de la plantilla:
-   - **En Windows:** `copy .env.example .env`
-   - **En Linux/Mac:** `cp .env.example .env`
-2. Abre el archivo `.env` recién creado en `backend/.env`.
-3. Solicita al administrador del equipo la cadena de conexión de Supabase o utiliza la siguiente estructura con las credenciales del equipo:
+### 6. Configurar el archivo `.env` desde el Explorador del IDE
+1. En el panel izquierdo del IDE (Explorador de archivos), abre la carpeta **`backend`**.
+2. Haz clic derecho sobre **`.env.example`** ➔ **Copy** (Copiar) y luego **Paste** (Pegar) en la misma carpeta.
+3. Cambia el nombre de la copia a **`.env`**.
+4. Ábrelo en el editor y asegúrate de tener la conexión a Supabase con la contraseña del equipo:
    ```env
-   # Configuración de Base de Datos en Supabase
    DATABASE_URL=postgresql://postgres.unlraxgwtzckxxthlwwe:TU_CONTRASEÑA@aws-0-us-east-2.pooler.supabase.com:5432/postgres
    ```
-4. Guarda el archivo `.env`.
+5. Guarda con **`Ctrl + S`**.
 
 ---
 
-### 6. Aplicar las migraciones a la Base de Datos
-Para sincronizar las tablas de moteles y tarifas con Supabase:
+### 7. Aplicar migraciones a la Base de Datos
+En la terminal integrada del IDE:
 ```bash
 python manage.py migrate
 ```
 
 ---
 
-### 7. Ejecutar las pruebas unitarias (Quality Gate)
-Para verificar que toda la lógica de negocio, duraciones y precios esté funcionando al 100%:
+### 8. Ejecutar las pruebas unitarias (Quality Gate)
+En la terminal integrada del IDE:
 ```bash
 pytest
 ```
-*Deberás ver todas las pruebas en verde con 100% de cobertura en `apps.moteles`.*
+*Todas las pruebas deben pasar en verde (16/16 con 100% de cobertura).*
 
 ---
 
-### 8. Iniciar el servidor local de desarrollo
+### 9. Iniciar el servidor local de desarrollo
+En la terminal integrada del IDE:
 ```bash
 python manage.py runserver
 ```
-El backend estará disponible en: **`http://127.0.0.1:8000/`**  
-Panel administrativo: **`http://127.0.0.1:8000/admin/`**
+- **API Backend:** `http://127.0.0.1:8000/`
+- **Panel Administrativo:** `http://127.0.0.1:8000/admin/`
 
 ---
 
