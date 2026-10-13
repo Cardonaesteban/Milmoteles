@@ -36,7 +36,7 @@ Sigue estos sencillos pasos para abrir y ejecutar **Milmoteles** directamente de
 ---
 
 ### 2. Abrir la Terminal Integrada del IDE
-- Presiona el atajo: **`Ctrl + \``** (o ve al menú superior: **Terminal ➔ New Terminal**).
+- Presiona el atajo: **`Ctrl + Ñ`** (o ve al menú superior: **Terminal ➔ New Terminal**).
 
 ---
 
@@ -54,7 +54,7 @@ python -m venv venv
 2. Escribe y selecciona: **`Python: Select Interpreter`**.
 3. Elige la opción que contiene el entorno virtual:  
    `Python 3.14 (.'venv': venv) .\backend\venv\Scripts\python.exe`
-> *Tip: A partir de este momento, cada vez que abras una terminal en el IDE con `Ctrl + \``, el entorno virtual `(venv)` se activará automáticamente sin comandos adicionales.*
+> *Tip: A partir de este momento, cada vez que abras una terminal en el IDE con `Ctrl + Ñ`, el entorno virtual `(venv)` se activará automáticamente sin comandos adicionales.*
 
 ---
 
